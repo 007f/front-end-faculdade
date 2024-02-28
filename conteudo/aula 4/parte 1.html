@@ -41,7 +41,7 @@
         <input type="text">
         <p><br><br><br></p>
         <p>input tipo "radio" define botões de um mesmo relacionados qual apenas 1 deles podem estar ativo <br>
-            ao mesmo tempo. ex: < input type="radio" name="nome_do_grupo" value="valor"> Valor (valor é o texto que será apresentado a frente do botão<br>
+            ao mesmo tempo. ex: < input type="radio" name="nome_do_grupo" value="valor"> Valor (valor é o texto que será apresentado a frente do botão)<br>
             assim qualquer botão com o nome "nome_do_grupo" estara ligado e apenas 1 deles podera estar ativo. <br>
             assim podemos criar questoes onde apenas 1 unica resposta é possivel, como Você deseja trabalhar como Webmaster?
         </p>
@@ -66,11 +66,73 @@
         <input type="submit">
         <!-------------------------------------------------->
         <p><br><br><br></p>
-        <p>por fim temos o input tipo button, que é literalmente um botão, que executa uma ação do <br>
+        <p>input tipo button, que é literalmente um botão, que executa uma ação do <br>
         sistema ao ser acionado (sua ação é livre ao interesse do desenvolvedor): <br>
         < input type="button"> (pode ter um id, classe ou name)
         </p>
         <input type="button">
+        <!-------------------------------------------------->
+        <p><br><br><br></p>
+        <p> textarea: Cria um campo de entrada no formulário para que o <br>
+            usuário insira informações. < textarea name="message" rows="10" cols="30"><br>
+            usando o atributos rows="__" e cols="__" podemos definir quantas linhas e colunas a caixa
+            de texto tera.
+        </p>
+        <textarea name="message" rows="10" cols="30"></textarea>
+        <!-------------------------------------------------->
+        <p><br><br><br></p>
+        <p> label - O elemento <label> define um rótulo para vários elementos de formulário.
+            EX: < label for="">    < /label> Definimos para quem são os rotulos e seus valores <br>
+        </p>
+        <label for="message">caixa de texto (Rotulo da tag label)</label>
+        <!-------------------------------------------------->
+        <p><br><br><br></p>
+        <p> select define uma lista suspensa. que permitirá selecionar opções nela inserida
+            <br> < select name="" id="">< /select> <br> <br>
+            option define as opções que podem ser selecionadas dentro da lista suspensa: <br>
+            < option value="">____< /option> em valor podemos definir o que aquela opção representa <br>
+            internamente no codigo, como por exemplo um codigo de cadastro. <br>
+            seus valores selecionados apenas são enviados com o acionamento de um input submit.
+        </p>
+        <p>cesta de frutas</p>
+        <select name="cesta de frutas" id="">
+            <option value="">maçã</option>
+            <option value="">banana</option>
+            <option value="">pera</option>
+            <option value="">tomate</option>
+        </select>
+        <!-------------------------------------------------->
+        <p><br><br><br></p>
+        <p>fieldset gera um agrupamento de dados no formulario que esta inserido <br>
+            < fieldset>  < /fieldset>, todo conteudo dentro é agrupado, normalmente é acompanhado <br>
+            pelo legend o qual se cria uma legenda para o agrupamento: <br>
+            < legend>< /legend>
+        </p>
+        <fieldset>
+            abobora, limão <br> controle remoto
+        </fieldset>
+        <legend>bagunça</legend>
+        <!-------------------------------------------------->
+        <p><br><br><br></p>
+        <p>o elemento datalist ou lista de dados especifica uma lista de opções <br>
+            predefinidas para um elemento < input>. tem o mesmo funcionamento do select com apresentação de tela diferente
+            <br>seus valores selecionados apenas são enviados com o acionamento de um input submit <br>
+            < datalist> < /datalist> as opções devem estar entre as tags de abertura de fechamento
+        </p>
+        <datalist>
+            a
+            b
+            c
+        </datalist>
+        <!-------------------------------------------------->
+        <p><br><br><br></p>
+        <p>output: gera a representação do resultado de um calculo na tela
+            basicamente é uma forma de saida de dados:
+            < output> < /output> o dado deve estar entre as tags.
+        </p>
+        <output>
+            565
+        </output>
     </form>
 
     <a href=""></a>
