@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscrição</title>
+    <link rel="stylesheet" href="estilo_inscricao.css">
+</head>
+<body>
+    <main>
+            <h2>Formulario de Inscrição</h2>
+            <form>
+                <div class="inp_style">
+                    <label for="nome_completo">Nome Completo</label>
+                    <input type="text" name="nome_completo" class="receb" required>
+                </div>
+                <div class="inp-style">
+                    <label for="e-mail">Endereço de E-mail</label>
+                    <input type="text"name="e-mail" class="receb" required>
+                </div>
+                <div class="inp-style">
+                    <label for="tipo">Tipo de Inscrição</label>
+                    <select name="tipo" id="tipo_de_inscricao">
+                        <option value="Participante">Participante</option>
+                        <option value="Palestrante">Palestrante</option>
+                        <option value="Voluntario">Voluntario</option>
+                    </select>
+                </div>
+                <div class="inp-style">
+                    <input type="checkbox" id="terms" name="termos" required>
+                    <label for="termos">Aceito os termos e condições</label>
+                </div>
+                <div class="inp-style">
+                    <button type="submit">Inscrever-se</button>
+                </div>
+            </form>
+    </main>
+    
+</body>
+</html>
