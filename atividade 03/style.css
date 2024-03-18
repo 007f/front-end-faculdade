@@ -1,0 +1,223 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Madimi+One&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background: #6e5c62;
+    margin: 8px;
+}
+
+header{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    max-width: auto;
+}
+
+.navbar{
+    display: flex;
+    gap: 10rem;
+    margin: 10px;
+}
+
+
+.navbar .element1 span{
+    color: #ffffff93;
+    padding: 2px 2px;
+    border-radius: 7px;
+    border: 2px solid #ffffff93;
+    cursor: pointer;
+}
+
+.navbar .element2 span{
+    color: #ffffff93;
+    padding: 2px 2px;
+    border-radius: 7px;
+    border: 2px solid #ffffff93;
+    cursor: pointer;
+}
+
+.navbar .element1 span:hover{
+    transform: scale(1.1);
+    transition: all .4s linear;
+    background: #ffffff93;
+    color: #fff;
+}
+
+.navbar .element2 span:hover{
+    transform: scale(1.1);
+    transition: all .4s linear;
+    background: #ffffff93;
+    color: #fff;
+}
+
+.navbar .text-element h1{
+    color:  #ffffff93;
+    font-family: "Roboto", sans-serif;
+    font-weight: 900;
+    font-style: normal;
+    letter-spacing: 2px;
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 80vh;
+}
+
+.tabela-main{
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin: 5px;
+}
+
+.tabela .card-tabela{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 6px;
+    background: #615458;
+    box-shadow: rgba(0, 0, 0, 0.13) 0px 10px 20px, rgba(0, 0, 0, 0.089) 0px 6px 6px;
+    transition: all .5s linear;
+    border: 1px solid #22222211;
+}
+
+.tabela .card-tabela:hover{
+    transform: scale(1.1);
+    transition: all .5s linear;
+    cursor: pointer;
+}
+
+.tabela #back{
+    background: #312a2c;
+    color: #fff;
+    font-family: "Madimi One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.tabela #correct{ 
+    background: #3aa394;
+    color: #fff;
+    font-family: "Madimi One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.tabela #mayble{
+    background: #d3ad69;
+    color: #fff;
+    font-family: "Madimi One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.tabela #no-select{
+    background:  #6e5c62;
+    border: #534343;
+    border-style: solid;
+    border-width: 5px;
+    color: #fff;
+    font-family: "Madimi One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.space{
+    padding-top: 40px;
+}
+
+.teclado{
+        display: flex;
+        justify-content: center;
+        gap: 0.5rem;
+        margin: 5px;
+}
+
+.teclado .tecla{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    height: 60px;
+    border-radius: 6px;
+    background: #54494c;
+    box-shadow: rgba(0, 0, 0, 0.13) 0px 10px 20px, rgba(0, 0, 0, 0.089) 0px 6px 6px;
+    transition: all .5s linear;
+    border: 1px solid #22222211;
+}
+
+.teclado .tecla:hover{
+    transform: scale(1.1);
+    transition: all .5s linear;
+    cursor: pointer;
+}
+
+.teclado #normal{
+    color: #fff;
+    font-family:    Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.teclado #btr-correct{
+    color: #fff;
+    background: #3aa394;
+    font-family:    Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.teclado #btr-mayble{
+    color: #fff;
+    background: #d3ad69;
+    font-family:    Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.teclado #btr-erase{
+    margin-left: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    height: 60px;
+    border-radius: 6px;
+    background: #54494c;
+    box-shadow: rgba(0, 0, 0, 0.13) 0px 10px 20px, rgba(0, 0, 0, 0.089) 0px 6px 6px;
+    transition: all .5s linear;
+    border: 1px solid #22222211;
+}
+
+.teclado #btr-erase img{
+    width: 40px;
+    height: 30px;
+}
+
+.teclado #btr-Enter{
+    margin-left: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 210px;
+    height: 60px;
+    border-radius: 6px;
+    background: #54494c;
+    box-shadow: rgba(0, 0, 0, 0.13) 0px 10px 20px, rgba(0, 0, 0, 0.089) 0px 6px 6px;
+    transition: all .5s linear;
+    border: 1px solid #22222211;
+
+    color: #fff;
+    font-family:    Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
