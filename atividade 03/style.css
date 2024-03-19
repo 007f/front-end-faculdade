@@ -137,6 +137,10 @@ main{
     padding-top: 40px;
 }
 
+#conteiner-tecla{
+    display: grid;
+    grid-row: 2/span 30;
+}
 .teclado{
         display: flex;
         justify-content: center;
@@ -206,7 +210,7 @@ main{
 }
 
 .teclado #btr-Enter{
-    margin-left: 70px;
+    margin-left: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -228,4 +232,16 @@ main{
     background: #615458;
     box-shadow: rgba(0, 0, 0, 0.13) 0px 10px 20px, rgba(0, 0, 0, 0.089) 0px 6px 6px;
     color: #706165;
+}
+
+#teclado1{
+    margin: 0;
+}
+
+#teclado2{
+    margin-left: 5em;
+}
+
+#teclado3{
+    margin-left: 7em;
 }
