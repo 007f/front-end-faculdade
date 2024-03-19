@@ -16,6 +16,7 @@ header{
     justify-content: center;
     width: 100%;
     max-width: auto;
+    margin-bottom: 1px;
 }
 
 .navbar{
@@ -68,6 +69,7 @@ main{
     flex-direction: column;
     justify-content: center;
     height: 80vh;
+    margin-top: 100px;
 }
 
 .tabela-main{
@@ -99,7 +101,7 @@ main{
 .tabela #back{
     background: #312a2c;
     color: #fff;
-    font-family: "Madimi One", sans-serif;
+    font-family: Arial, Helvetica, sans-serif;;
     font-weight: 400;
     font-style: normal;
 }
@@ -220,4 +222,10 @@ main{
     font-family:    Arial, Helvetica, sans-serif;
     font-weight: 400;
     font-style: normal;
+}
+
+.teclado #btr-error{
+    background: #615458;
+    box-shadow: rgba(0, 0, 0, 0.13) 0px 10px 20px, rgba(0, 0, 0, 0.089) 0px 6px 6px;
+    color: #706165;
 }
