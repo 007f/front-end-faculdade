@@ -7,6 +7,7 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
+    align-content: center;
 }
 
 .linha{
@@ -53,7 +54,8 @@ body{
 }
 
 .linha button{
-    background: none;
+    background-color: transparent;
+    border: none;
 }
 
 .linha #pd2{
