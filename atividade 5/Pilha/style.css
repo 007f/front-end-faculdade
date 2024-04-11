@@ -1,0 +1,24 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+ul{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+li{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30px;
+    margin-top: 5px;
+}
