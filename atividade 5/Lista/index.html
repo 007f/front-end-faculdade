@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista</title>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+    <div class="Titulo"><H1>Lista</H1></DIv>
+    <div>
+        <div class="Insercao">
+            <input type="text" id="item" placeholder="Insira o Elemento na lista">
+            <input type="text" id="referencia" placeholder="Insira a um Elemento de referencia">
+        
+            <button id="add_top" onclick="listar_inicio()">Listar no Inicio</button>
+            <button id="add_mid" onclick="listar_meio()">Listar no meio</button>
+            <button id="add_bot" onclick="listar_fim()">Listar no fim</button>
+            <button id="Retirar" onclick="retirar()">Retirar Elemento</button>
+        </div>
+        <ul id="lista">
+
+        </ul>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
