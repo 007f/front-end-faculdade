@@ -3,41 +3,60 @@ const conteudo = [];
 
 function listar_inicio(){
     const item = document.getElementById('item');
-    for(x=conteudo.length-1; x>=0; x--){
-        conteudo[x+1] = conteudo[x]; 
+    if(item.value==''){
+
+    }else{
+        for(x=conteudo.length-1; x>=0; x--){
+            conteudo[x+1] = conteudo[x]; 
+        }
+        conteudo[0] = item.value;
+        item.value = "";
+        atualizar();
     }
-    conteudo[0] = item.value;
-    item.value = "";
-    atualizar();
 }
 
 function listar_meio(){
     const item = document.getElementById('item');
-    const ref = document.getElementById('referencia');
-    let ant = 0;
-    let x;
-    while(conteudo[ant] != ref && ant<conteudo.length){
-        ant++
-    }
-    ant--;
+    if(item.value==''){
 
-    for(x=conteudo.length-1; x>ant; x--){
-        conteudo[x+1] = conteudo[x]; 
     }
-    console.log(x);
-    console.log(ant);
-    console.log(ref.value);
-    conteudo[ant+1]=item.value;
-    item.value = "";
-    ref.value = "";
-    atualizar();
+    else{
+        const ref = document.getElementById('referencia');
+        let ant = 0;
+        let x;
+        while(conteudo[ant] != ref.value && ant<conteudo.length){
+            ant++;
+        }
+
+        for(x=conteudo.length-1; x>ant; x--){
+            conteudo[x+1] = conteudo[x]; 
+        }
+        console.log("x="+x);
+        console.log("ant="+ant);
+        console.log("ref="+ref.value);
+        if (ant==conteudo.length) {
+            conteudo.push(item.value);
+        }
+        else{
+            conteudo[ant+1]=item.value;
+        }
+        
+        item.value = "";
+        ref.value = "";
+        atualizar();
+    }
 }
 
 function listar_fim(){
-    const item = document.getElementById('item');
-    conteudo.push(item.value);
-    item.value = "";
-    atualizar();
+    if(item.value==''){
+
+    }else{
+        const item = document.getElementById('item');
+        conteudo.push(item.value);
+        item.value = "";
+        atualizar();
+    }
+    
 }
 
 function atualizar() {
@@ -50,6 +69,26 @@ function atualizar() {
 }
 
 function retirar(){
-    conteudo.pop()
+    let item = document.getElementById('item');
+    if(item.value==''){
+        conteudo.pop();
+        
+    }else{
+        let ant = 0;
+        let x;
+        while(conteudo[ant] != item.value && ant<conteudo.length){
+            ant++;
+        }
+
+        for(x=ant; x<conteudo.length; x++){
+            if(x==conteudo.length-1){
+                conteudo.pop();
+            }else{
+                conteudo[x] = conteudo[x+1];
+            }
+             
+        }  
+    }
     atualizar();
+    item.value = "";
 }

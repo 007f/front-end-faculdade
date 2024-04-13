@@ -22,3 +22,7 @@ li{
     font-size: 30px;
     margin-top: 5px;
 }
+
+#item{
+    width: 400px;
+}
