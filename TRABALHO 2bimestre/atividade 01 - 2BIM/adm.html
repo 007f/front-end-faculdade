@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADM</title>
+    <link rel="stylesheet" href="style_login.css">
+    <link rel="stylesheet" href="style_site.css">
+</head>
+<header>
+        <nav>
+            <a href="usuario.html"><img id="logo" src="https://tse3.mm.bing.net/th?id=OIP.Naxdu1i1VzGhuWCKUmC6lgHaHa&pid=Api&P=0&h=180"></a>
+            <h1>Loja de seu Nelson</h1>
+            <button><img src=""></button>
+        </nav>
+    </header>
+<body>
+    
+    
+    
+    
+    <main>
+        <label for="item">Item:</label>
+        <input type="text" name="item" id="item" required>
+        <label for="valor">Valor:</label>
+        <input type="number" name="valor" id="valor" value="0.00" required>
+        <button onclick="enviar()" id="safe">Salvar</button>
+    </main>
+    
+    
+    <div id="lista">
+
+    </div> 
+    
+    
+    
+    
+    
+    <script>
+        var listagem = []; // array
+
+        window.onload = function(){
+            consultarBanco();
+        }
+        function enviar() {
+          let item = document.getElementById('item').value;
+          let valor = document.getElementById('valor').value;
+          const obj = {
+            id: Date.now(),
+            nome: item,
+            valor: valor
+          }
+          let id;
+          let indiceEdicao = -1;
+          
+          if(listagem===null){
+            
+          }else{
+             let objExistente = listagem.find((element, index) => {
+              if (element.item === item) {
+                  indiceEdicao = index;
+                  return true;
+              }
+              return false;
+            });
+          }
+           
+
+          
+          //verificação de lista
+          if (indiceEdicao >= 0) {
+              id = listagem[indiceEdicao].id;
+              listagem[indiceEdicao] = obj;
+          } else {
+              //id = obj.id;
+              listagem.push(obj);
+          }
+
+
+          // converto para string tipo JSON
+          let stringJ = JSON.stringify(listagem);
+    
+    
+          // memoria
+          localStorage.setItem('bancoDados', stringJ);
+          //localStorage.setItem('carrinhoCompra', stringJ);
+          consultarBanco();
+          
+        }
+    
+        function consultarBanco() {
+          let stringJ = localStorage.getItem('bancoDados');
+          let memoria = JSON.parse(stringJ);
+          console.log(memoria);
+          if(memoria!==null){
+            listagem = JSON.parse(stringJ);
+            imprimir(memoria);
+          }
+            
+        }
+
+        function editarItem(i){
+          let obj = listagem[i];
+          obj.id;
+          obj.nome;
+          obj.valor;
+          document.getElementById('item').value = obj.item;
+          document.getElementById('valor').value = obj.valor;
+        }
+
+        function excluiritem(i){
+          if (confirm(`Tem certeza que deseja excluir o item ${listagem[i].nome}?`)) {
+            listagem.splice(i, 1);
+            let stringJ = JSON.stringify(listagem);
+            localStorage.setItem('bancoDados', stringJ);
+            consultarBanco();
+          }
+        }
+
+
+    
+        function imprimir(memoria) {
+            document.getElementById('lista').innerHTML="";
+          for (let i = 0; i<memoria.length; i++) {
+            let item = memoria[i];
+            let div = document.createElement('div');
+            div.innerHTML = `<p id=("item")>id: ${item.id} - Nome: ${item.nome} - Valor: ${item.valor}.00 
+            <button onclick="editarItem(${i})" id="edt">Editar</button> <button onclick="excluiritem(${i})" id="exc">Excluir</button></p>`;
+            div.className = "produto";
+            document.getElementById('lista').appendChild(div);
+          }
+        }
+
+      </script>
+    </body>
+    
+    </html>

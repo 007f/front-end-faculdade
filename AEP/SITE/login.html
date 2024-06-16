@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+    <link rel="stylesheet" href="login_style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="tela_inicial.html"><img id="logo" src="img/BSB-fundo-removido-modo-claro.png"></a>
+            <button><img src=""></button>
+        </nav>
+    </header>
+    <main>
+        <h2>Login</h2>
+            <div class="inp_style">
+                <label for="nome_usuario">Nome de Usuario</label>
+                <input type="text" name="nome_usuario" id="nome_usuario" required>
+            </div>
+            <div class="inp-style">
+                <label for="senha">Senha</label>
+                <input type="password" name="senha" id="senha" required>
+            </div>
+            
+            <div class="inp-style">
+                <div class="linha">
+                    <input type="checkbox" id="lembrar" name="lembrar">
+                    <label for="Lembrar" id="save">Lembrar de mim</label>
+                </div>
+            </div>
+            <div class="inp-style">
+                <button onclick="validar()" type="submit" id="enviar">entrar</button>
+            </div>
+    </main>
+    <script>
+        window.onload = function(){
+            adm = null;
+            const stringJson = JSON.stringify(adm);
+            localStorage.setItem('login', stringJson);
+        }
+        function validar(){
+            let nome = (document.getElementById('nome_usuario').value).toLowerCase();
+            let senha = document.getElementById('senha').value;
+            let adm = {
+                nome: nome,
+                senha: senha
+            }
+
+            if(nome === "adm" && senha === "123"){
+                const stringJson = JSON.stringify(adm);
+                localStorage.setItem('login', stringJson);
+                window.location.href = "tela_inicial.html";
+            }else if(nome != "" && senha !=""){
+                window.location.href = "tela_inicial.html";
+            }else{ 
+                alert("credenciais incorretas");
+            }
+        }
+    </script>
+</body>
+</html>

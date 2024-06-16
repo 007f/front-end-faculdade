@@ -1,0 +1,65 @@
+#lista{
+    margin-top: 20px;
+    padding: 2px;
+    background-color: rgb(201, 191, 219);
+    border-radius: 7px;
+}
+
+.produto{
+    padding: 4px;
+    margin: 5px;
+    background-color: rgb(172, 187, 207);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+}
+
+#exc, #cmp, #edt, #safe{
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    height: 30px;
+    border-radius: 10px;
+    background-color: rgb(1, 82, 231);
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#carrinhoCompra{
+    display: none;
+    background-color: antiquewhite;
+    margin-top: 40px;
+    border-radius: 7px;
+}
+
+#escolhas{
+    width: auto;
+    height: auto;
+}
+
+#visual{
+    display: flex;
+    flex-direction: row;
+}
+
+#acesso{
+    width: 30px;
+    height: 20px;
+}
+
+#pagame{
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    position: fixed;
+    background-color: antiquewhite;
+    top: 70px;
+    width: 90%;
+    height: 75%;
+}
+
+#qrcode{
+    width: 10vw;
+    height: 17vh;    
+}

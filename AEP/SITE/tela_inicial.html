@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biblioteca Software Brasil</title>
+    <link rel="stylesheet" href="tela_inicial_style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="tela_inicial.html"><img src="img/BSB-fundo-removido-modo-claro.png" id="logo"></a>
+            <div id="barra-de-pesquisa">
+                <input type="text" name="pesquisa" id="pesquisa-text" placeholder="O que busca?">
+                <button type="button" id="btnPesquisa"><img src="img/Lupa-de-Pesquisa-sem-fundo.png" id="pesq"></button>
+            </div>
+            <div id="acesso">
+                <button onclick="entrar()" class="entrar-registrar">Entrar</button>
+                <button type="button" class="entrar-registrar">Registrar</button>
+            </div>
+            <div>
+                <a href=""><img src="img/Engrenagem-confg-modo-escuro-fundo-removido.png" id="config"></a>
+            </div>
+        </nav>
+    </header>
+    <div class="barra-categoria">
+        <table>
+            <tr>
+                <td>
+                    <div class="categoria" id="select">
+                        C
+                    </div>
+                </td>
+                <td>
+                    <div class="categoria" id="no-select">
+                        Java
+                    </div>
+                </td>
+                <td>
+                    <div class="categoria" id="no-select">
+                        JS
+                    </div>
+                </td>
+                <td>
+                    <div class="categoria" id="no-select">
+                        SQL
+                    </div> 
+                </td>
+                <td>
+                    <div class="categoria" id="no-select">
+                        HTML/CSS
+                    </div>
+                </td>
+                <td>
+                    <div class="categoria" id="no-select">
+                        Cloud AWS
+                    </div>
+                </td>
+                <td>
+                    <div class="categoria" id="no-select">
+                        PHP
+                    </div>
+                </td>
+                <td>
+                    <div class="categoria" id="no-select">
+                       Python 
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="texto">
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Modi dolorum perspiciatis libero dolor? Quas doloribus architecto velit, 
+        consequuntur iste temporibus culpa esse exercitationem 
+        numquam voluptates dicta est explicabo, tempore eligendi.
+        </p>
+    </div>
+    <div id="Aba">
+        <div class="listagem">
+            <ul id="lista1">
+                <li><a href="" class="list1">Bibliotecas</a></li>
+                <li><a href="" class="list1">Estrutura condicionais</a></li>
+                <li><a href="" class="list1">Ponteiro</a></li>
+                <li><a href="" class="list1">Funções e Procedimentos</a></li>
+                <li><a href="" class="list1">Estrutura de dados</a></li>
+            </ul>
+            <ul id="lista2">
+                <li><a href="" class="list2">Comandos</a></li>
+                <li><a href="" class="list2">Estrutura de repetição</a></li>
+                <li><a href="" class="list2">Strings</a></li>
+                <li><a href="" class="list2">Structs</a></li>
+                <li><a href="" class="list2">Operadores</a></li>
+            </ul>
+        </div> 
+        <div id="edtAba">
+            <button onclick="inserirConteudo()" id="edtConteudo" style="height: 3vh;"><img src="img/Edição.png" style="height: 3vh;"></button>
+        </div>
+    </div>
+    <div id="AbaInsercao">
+        <h2>Insira o Caminho</h2>
+        <div class="campo">
+            <label for="nome">Insira o Identificador:</label>
+            <input type="text" name="nome" id="edtNome">
+        </div>
+        <div class="campo">    
+            <label for="link">Insira o Caminho:</label>
+            <input  type="text" name="link" id="edtLink" placeholder="URL, src...">
+        </div>
+        <div>
+            <button onclick="insercao()">inserir</button>
+            <button onclick="cancelarInsercao()">cancelar</button>
+        </div>
+        
+    </div>
+    
+    <div class="vagas">
+        <div class="vaga" id="titulo-vagas">
+            <h2>Vagas</h2>
+        </div>
+        <div class="vaga">
+            <div>
+                <p id="nome">Unicesumar</p>
+                <p id="area">Vaga: Manutenção de banco de dados</p>
+            </div>
+
+        </div>
+        <div class="vaga">
+            <div>
+                <p id="nome">Unicesumar</p>
+                <p id="area">Vaga: Suporte</p>
+            </div>
+        </div>
+        <div class="vaga">
+            <div>
+                <p id="nome">Unicesumar</p>
+                <p id="area">Vaga: Manutenção hardware</p>
+            </div>
+        </div>
+        <div class="vaga">
+            <div>
+                <p id="nome">Unicesumar</p>
+                <p id="area">Vaga: Suporte</p>
+            </div>
+        </div>
+        <div class="vaga">
+            <div>
+                <p id="nome">Unicesumar</p>
+                <p id="area">Vaga: Desenvolvedor Treine</p>
+            </div>
+        </div>
+        <div class="vaga">
+            <div>
+                <p id="nome">Unicesumar</p>
+                <p id="area">Vaga: Manutenção de banco de dados</p>
+            </div>
+        </div>
+    </div> 
+    <script src="script.js"></script> 
+</body>
+</html>

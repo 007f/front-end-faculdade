@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Usuario</title>
+    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="style_login.css">
+    <link rel="stylesheet" href="style_site.css">
+</head>
+<header>
+    <nav>
+        <a href="usuario.html"><img id="logo" src="https://tse3.mm.bing.net/th?id=OIP.Naxdu1i1VzGhuWCKUmC6lgHaHa&pid=Api&P=0&h=180"></a>
+        <h1>Loja de seu Nelson</h1>
+        <a href="adm.html">adm</a>
+
+    </nav>
+</header>
+<body>
+    
+    <div id="lista">
+        
+    </div> 
+
+
+    <div id="carrinhoCompra">
+        
+    </div>
+
+    <div id="visual">
+        <button onclick="abrirCarrinho()"><img id="acesso" src="https://tse4.mm.bing.net/th?id=OIP.TF92ryHQzITufNnn5RX-OQHaGV&pid=Api&P=0&h=180" alt=""></button>
+        <p id="valor-total">Valor Total: R$ 0.00</p>
+    </div>
+
+    <div id="pagame">
+        
+        <h2>Formas de pagamento</h2>
+        <p id="valor-final">Valor de compra atual: R$ 0.00</p>
+        <div>
+        <input onchange="MudarFormPag()" type="radio" name="rdoPay" id="GB"> Gerar Boleto  
+        <input onchange="MudarFormPag()" type="radio" name="rdoPay" id="P" checked> Pix </div>
+        <img id="qrcode" src="qrcode.jpg">
+        <div>
+            <div class="dados">
+            <label for="endereco" id="lendere">Endereço:</label>
+            <input type="text" name="endereco" id="endere">
+        </div>
+        <div class="dados">
+            <label for="CPF" id="lcpf">CPF:</label>
+            <input type="text" name="CPF" id="cpf">
+        </div>
+        <div class="dados">
+            <label for="Tipo" id="ltip">Tipo de banco:</label>
+            <select name="Tipo" id="tip">
+                <option value="">BRADESCO</option>
+                <option value="">Banco do Brasil</option>
+                <option value="">Santander</option>
+                <option value="">Caixa</option>
+            </select>
+        </div>
+        </div>
+        
+        
+
+        <div>
+            <button onclick="finalizarCompra()">Finalizar pagamento</button> <button onclick="cancelarPagamento()">Cancelar Pagamento</button> 
+        </div>
+    </div>
+
+    <script>
+        let carrinho = [];
+
+        window.onload = function(){
+            consultarBanco();
+        }
+
+        var memoria= [];
+
+        //Funções de Edição------------------------------------------------------------
+        function consultarBanco() {
+          let stringJ = localStorage.getItem('bancoDados');
+          memoria = JSON.parse(stringJ);
+          console.log(memoria);
+          if(memoria!==null){
+            imprimir(memoria);
+          }
+        }
+
+        function selecionarItem(i){
+            let quant = document.getElementById(`quant-${i}`).value
+            let obj = {
+                item: memoria[i],
+                qt: quant
+            }
+            carrinho.push(obj);
+            console.log(carrinho);
+            atualizarValorTotal();
+            atualizarcarrinho();
+        }
+
+        function MudarFormPag(){
+            let GB = document.getElementById("GB");
+
+            if(GB.checked){
+                let QR = document.getElementById("qrcode");
+                let dados = [];
+                let i;
+                dados = document.getElementsByClassName("dados");
+                for(i=0; i<dados.length; i++){
+                    dados[i].style.display = "block";
+                }
+                
+                QR.style.display = "none";
+            }else{
+                let QR = document.getElementById("qrcode");
+                let dados = [];
+                let i;
+                dados = document.getElementsByClassName("dados");
+                for(i=0; i<dados.length; i++){
+                    dados[i].style.display = "none";
+                }
+                
+                QR.style.display = "flex";
+            }
+            
+        }
+
+        function Excluir(i){
+          if (confirm(`Tem certeza que deseja excluir o item ${carrinho[i].item.nome}?`)) {
+            carrinho.splice(i, 1);
+            atualizarValorTotal();
+            atualizarcarrinho();
+          }
+        }
+
+        //Funções de navegação --------------------------------------------
+        function abrirCarrinho(){
+            let div = document.getElementById("carrinhoCompra");
+            div.style.display = "flex";
+            div.style.alignitems = "center";
+            div.style.flexDirection = "column"
+            atualizarcarrinho();
+        }
+
+        function fecharCarrinho(){
+            let div = document.getElementById("carrinhoCompra");
+            div.style.display = "none";
+            
+        }
+
+        function formPay(){
+            let div = document.getElementById("pagame");
+            div.style.display = "flex";
+            div.style.flexDirection = "column"
+            div.style.alignitems = "center";
+            div.style.justifyContent = "space-evenly"
+            let GB = document.getElementById("GB");
+
+            if(GB.checked){
+                let QR = document.getElementById("qrcode");
+                let dados = [];
+                let i;
+                dados = document.getElementsByClassName("dados");
+                for(i=0; i<dados.length; i++){
+                    dados[i].style.display = "block";
+                }
+                
+                QR.style.display = "none";
+            }else{
+                let QR = document.getElementById("qrcode");
+                let dados = [];
+                let i;
+                dados = document.getElementsByClassName("dados");
+                for(i=0; i<dados.length; i++){
+                    dados[i].style.display = "none";
+                }
+                
+                QR.style.display = "flex";
+            }
+
+            atualizarValorfinal();
+        }
+        function finalizarCompra(){
+            let pop = document.getElementById("pagame");
+            pop.style.display = "none";
+            alert("Compra realizada");
+        }
+
+        function cancel(){
+            carrinho = [];
+            atualizarValorTotal();
+            atualizarValorfinal()
+            atualizarcarrinho();
+        }
+
+        function cancelarPagamento(){
+            let pop = document.getElementById("pagame");
+            pop.style.display = "none";
+            alert("Pagamento Cancelado");
+        }
+
+
+        //Funções de atualização ----------------------------------------
+
+        function imprimir(memoria) {
+            document.getElementById('lista').innerHTML="";
+            for (let i = 0; i<memoria.length; i++) {
+                let item = memoria[i];
+                let div = document.createElement('div');
+                div.innerHTML = `<p id=("item")>id: ${item.id} - Nome: ${item.nome} - Valor: ${item.valor}.00 - Quantidade: <input type="number" id="quant-${i}" min="1" value="1">
+                <button onclick="selecionarItem(${i})" id="cmp">Comprar</button></p>`;
+                div.className = 'produto';
+                document.getElementById('lista').appendChild(div);
+          }
+        }
+
+        function atualizarcarrinho(){
+            document.getElementById('carrinhoCompra').innerHTML="";
+            let h = document.createElement('h2');
+            h.innerHTML="Carrinho";
+            document.getElementById('carrinhoCompra').appendChild(h);
+            for (let i = 0; i<carrinho.length; i++) {
+                let prod = carrinho[i];
+                let div = document.createElement('div');
+                div.innerHTML = `<p id=("produtoComprado")>id: ${prod.item.id} - Nome: ${prod.item.nome} - Valor: ${prod.item.valor}.00 - Quantidade: ${prod.qt}
+                <button onclick="Excluir(${i})" id="exc">Excluir</button></p>`;
+                div.className = 'produto';
+                document.getElementById('carrinhoCompra').appendChild(div);
+          }
+          let ops = document.createElement("div");
+          ops.innerHTML=`<button onclick="fecharCarrinho()" id="escolhas">Fechar Carrinho</button> <button onclick="formPay()" id="escolhas">Formas de Pagamento</button> <button onclick="cancel()" id="escolhas">Cancelar Compra</button>`;
+          ops.className="opções";
+          document.getElementById('carrinhoCompra').appendChild(ops);
+        }
+
+        function atualizarValorTotal() {
+            let valorTotal = carrinho.reduce((total, obj) => total + (obj.item.valor * obj.qt), 0);
+            document.getElementById('valor-total').textContent = `Valor Total: R$ ${valorTotal.toFixed(2)}`;
+        }
+
+        function atualizarValorfinal() {
+            let valorfinal = carrinho.reduce((total, obj) => total + (obj.item.valor * obj.qt), 0);
+            document.getElementById('valor-final').textContent = `Valor de compra atual: R$ ${valorfinal.toFixed(2)}`;
+        }
+
+        
+    </script>
+</body>
+</html>
