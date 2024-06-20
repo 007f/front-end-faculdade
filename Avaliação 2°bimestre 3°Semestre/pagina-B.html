@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listagem Evento</title>
+</head>
+<body>
+    <main>
+        <h1>Listagem e edição Evento</h1>
+        <label for="title">Título:</label><br>
+        <input type="text" id="title" name="title" required><br><br>
+
+        <label for="date">Data:</label><br>
+        <input type="date" id="date" name="date" required><br><br>
+
+        <label for="location">Local:</label><br>
+        <input type="text" id="location" name="location" required><br><br>
+
+        <label for="description">Descrição:</label><br>
+        <textarea id="description" name="description" required></textarea><br><br>
+
+        <label for="organizer">Organizador:</label><br>
+        <input type="text" id="organizer" name="organizer" required><br><br>
+
+        <button onclick="enviar()">Atualizar Evento</button>
+    </main>
+
+    <div id="lista"></div>
+        
+
+    <a href="pagina-A.html">Adicionar Eventos</a>
+
+    <script>
+        var listagem = []; // array
+
+        window.onload = function(){
+            consultarBanco();
+        }
+
+        function enviar() {
+        let titulo = document.getElementById('title').value;
+        let data = document.getElementById('date').value;
+        let local = document.getElementById('location').value;
+        let desc = document.getElementById('description').value;
+        let resp = document.getElementById('organizer').value;
+        const obj = {
+            titulo: titulo,
+            data: data,
+            local: local,
+            descri: desc,
+            respon: resp
+        }
+    
+        let indiceEdicao = -1;
+        
+        if(listagem===null){
+            
+        }else{
+            let objExistente = listagem.find((element, index) => {
+            if (element.titulo === titulo) {
+                indiceEdicao = index;
+                return true;
+            }
+            return false;
+            });
+        }
+        
+
+        
+        //verificação de lista
+        if (indiceEdicao >= 0) {
+            listagem[indiceEdicao] = obj;
+        } else {
+            listagem.push(obj);
+        }
+
+
+        // converto para string tipo JSON
+        let stringJ = JSON.stringify(listagem);
+
+
+        // memoria
+        localStorage.setItem('bancoDados', stringJ);
+        //localStorage.setItem('carrinhoCompra', stringJ);
+        consultarBanco();
+        
+    }
+
+        function consultarBanco() {
+          let stringJ = localStorage.getItem('bancoDados');
+          let memoria = JSON.parse(stringJ);
+          console.log(memoria);
+          if(memoria!==null){
+            listagem = JSON.parse(stringJ);
+            imprimir(memoria);
+          }
+            
+        }
+        function editarItem(i){
+            let obj = listagem[i];
+            document.getElementById('title').value = obj.titulo;
+            document.getElementById('date').value = obj.data;
+            document.getElementById('location').value = obj.local;
+            document.getElementById('description').value = obj.descri;
+            document.getElementById('organizer').value = obj.respon;
+        }
+
+        function excluiritem(i){
+          if (confirm(`Tem certeza que deseja excluir o evento ${listagem[i].titulo} da data: ${listagem[i].data}?`)) {
+            listagem.splice(i, 1);
+            let stringJ = JSON.stringify(listagem);
+            localStorage.setItem('bancoDados', stringJ);
+            consultarBanco();
+          }
+        }
+
+
+        function imprimir(memoria) {
+            document.getElementById('lista').innerHTML="";
+          for (let i = 0; i<memoria.length; i++) {
+            let item = memoria[i];
+            let div = document.createElement('div');
+            div.innerHTML = `<p id=("item")>titulo: ${item.titulo} - data: ${item.data} - Responsavel: ${item.respon} - local: ${item.local}<br>
+                descrição: ${item.descri} -  
+            <button onclick="editarItem(${i})" id="edt">Editar</button> <button onclick="excluiritem(${i})" id="exc">Excluir</button></p>`;
+            div.className = "produto";
+            document.getElementById('lista').appendChild(div);
+          }
+        }
+
+    </script>
+
+</body>
+</html>
